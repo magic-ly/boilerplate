@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'mixins';
+
+// Changing html font size depending on device width
+@media (min-device-width: $deviceWidthMobileSmall) { html { font-size: 13px }} // Iphone 5
+@media (min-device-width: $deviceWidthMobileMedium) { html { font-size: 15px }} // Iphone 6,7,8
+@media (min-device-width: $deviceWidthMobileBig) { html { font-size: 16px }} // Iphone 8 plus
+
+@import 'components/HelloWorld/styles';
+
+.app {
+  background-color: #2ecc71;
+
+  @include for-mobile {
+    background-color: blue;
+  }
+
+  // We always use rem mixin for font sizes, paddings, and margins
+  font-size: rem(16px);
+}

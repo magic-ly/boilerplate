@@ -1,0 +1,45 @@
+@use "sass:math";
+
+@mixin for-mobile { // < 769
+  @media (max-width: $breakpointTablet) { @content; }
+}
+@mixin for-desktop { // > 769 (includes tablets)
+  @media (min-width: $breakpointTablet) { @content; }
+}
+
+@mixin for-mobile-tablet { // < 1024
+  @media (max-width: $breakpointDesktop) { @content; }
+}
+@mixin for-desktop-large { // > 1024
+  @media (min-width: $breakpointDesktop) { @content; }
+}
+
+@mixin maxLines($lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  -webkit-line-clamp: $lines;
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}
+
+@function rem($size) {
+  @return math.div($size * 1rem, 16px);
+}
